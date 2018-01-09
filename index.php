@@ -8,6 +8,7 @@ $row=sqlsrv_fetch_array($rs);
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -94,7 +95,7 @@ $row=sqlsrv_fetch_array($rs);
                 <div class="form-group col-sm-6">
                     <label for="mt_ttc" class="col-sm-3 control-label">MT_TTC</label>
                     <div class="col-sm-9">
-                        <input type="texte" class="form-control">
+                        <input type="texte" disabled="disabled" class="form-control">
                     </div>
                 </div>
             	<div class="form-group col-sm-6">
@@ -107,6 +108,7 @@ $row=sqlsrv_fetch_array($rs);
                     <label for="dde_rappel" class="col-sm-3 control-label">DDE_RAPPEL</label>
                     <div class="col-sm-9">
                         <select id="dde_rappel" class="form-control" name="demandeRappel">
+                            <option>- - - - - - - -</option>
                             <option>Demande de facture Courrier</option>
             				<option>Demande de facture par mail</option>
             				<option>Demande justificatif commande</option>
@@ -137,8 +139,7 @@ $row=sqlsrv_fetch_array($rs);
         							<textarea name="comment" rows="8" cols="100%" placeholder="mettez votre texte ici ..."></textarea>
       								</div>
       								<div class="modal-footer">
-        							<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-        							<button type="button" class="btn btn-primary">Enregistrer</button>
+        							<button type="button" class="btn btn-primary" data-dismiss="modal" name="ok">Enregistrer</button>
       								</div>
     							</div>
   							</div>
@@ -150,7 +151,7 @@ $row=sqlsrv_fetch_array($rs);
               
             </form> <!-- /form -->
 		</div> <!-- ./container -->
-
+		<script type="text/javascript">function effacer(){window.document.form.textarea}</script>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
