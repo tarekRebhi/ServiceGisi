@@ -1,0 +1,21 @@
+body{
+    background: url(wall.jpg) repeat center fixed;
+  }
+  nav{
+   margin-bottom: 3rem; 
+  }
+  .container{
+    font-size:12;
+    background-color: #ffffff;
+    border:10px solid #000000;
+    margin-top: 5rem;
+
+  } 
+  .container input {
+    font-size: 12;
+  }
+  div .modal.fade .modal-dialog {
+  -webkit-transform: translate(0, 75%);
+          transform: translate(0, 75%);
+  }
+  .navbar h3{color:#ffffff; font-family: comic sans ms;}
