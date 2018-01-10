@@ -5,21 +5,29 @@ $query="select * from RECVT_GISI where INDICE='$indice'";
 $rs=sqlsrv_query($conn,$query);
 $row=sqlsrv_fetch_array($rs);
 ?>
+<!doctype html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" href=css/bootstrap.min.css>
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+        <script type="text/javascript">
+        $(".col-lg-3).addClass("col-md-3").addClass("col-xs-3");
+        $(".col-lg-4).addClass("col-md-4").addClass("col-xs-4");
+        </script>
+        <![endif]-->
+		<script type="text/javascript" src="js/respond.min.js"></script>
+        <script type="text/javascript" src="js/html5shiv.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top"><h3>SERVICE CLIENT GISI</h3></nav>
 		<div class="container">
-            <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data">
+            <form class="form-horizental" role="form" method="POST" enctype="multipart/form-data">
                 <div class="form-group col-sm-6">
         			<h2 align="center"><u>INFO CLIENT</u></h2>
     			</div>
@@ -28,14 +36,14 @@ $row=sqlsrv_fetch_array($rs);
     			</div>
                 <div class="form-group col-sm-6">
                     <label for="civilite" class="col-sm-3 control-label">CIV</label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-3">
                         <input type="text"  class="form-control" name="civ" value="<?php echo($row['CIV']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="indice" class="col-sm-3 control-label">INDICE</label>
-                    <div class="col-sm-9">
-                        <input type="text"  disabled="disabled" class="form-control" name="indice" value="<?php echo($row['INDICE']) ?>">
+                    <div class="col-sm-3">
+                        <input type="text" disabled="disabled" class="form-control" name="indice" value="<?php echo($row['INDICE']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
@@ -81,7 +89,7 @@ $row=sqlsrv_fetch_array($rs);
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="nm_f_edit" class="col-sm-3 control-label">NM_FACT_EDIT</label>
+                    <label for="nm_f_edit" class="col-sm-3 control-label">NM_FCT_EDIT</label>
                     <div class="col-sm-9">
                         <input  disabled="disabled" type="texte" class="form-control">
                     </div>
@@ -121,12 +129,12 @@ $row=sqlsrv_fetch_array($rs);
                 <div class="form-group">
                 	
                     <div class="col-sm-3 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary btn-block" name="enregistrer">ENREGISTRER</button>
+                        <button type="submit" class="btn btn-primary" name="enregistrer">ENREGISTRER</button>
                     </div>
                     <div class="form-group col-sm-6">
                     	<div class="col-sm-3 col-sm-offset-3">
                 		<!-- Button trigger modal -->
-						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">COMMENTAIRE</button>
+						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">COMMENTAIRE</button>
   						<!-- Modal -->
 						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   							<div class="modal-dialog" role="document">
@@ -136,7 +144,7 @@ $row=sqlsrv_fetch_array($rs);
         							<h4 class="modal-title" id="myModalLabel">Commentaire..</h4>
       								</div>
       								<div class="modal-body">
-        							<textarea name="comment" rows="8" cols="100%" placeholder="mettez votre texte ici ..."></textarea>
+        							<textarea name="comment" rows="8" cols="80%" placeholder="mettez votre texte ici ..."></textarea>
       								</div>
       								<div class="modal-footer">
         							<button type="button" class="btn btn-primary" data-dismiss="modal" name="ok">Enregistrer</button>
@@ -151,10 +159,15 @@ $row=sqlsrv_fetch_array($rs);
               
             </form> <!-- /form -->
 		</div> <!-- ./container -->
-		<script type="text/javascript">function effacer(){window.document.form.textarea}</script>
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<!-- jQuery library -->
+		<script
+              src="https://code.jquery.com/jquery-1.12.4.js"
+              integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+              crossorigin="anonymous"></script>
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="js/bootstrap.min.js"></script>
+		
+		
 	</body>
 	<?php
 	if(isset($_POST["enregistrer"])) {
