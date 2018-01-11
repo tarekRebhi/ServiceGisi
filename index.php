@@ -18,7 +18,7 @@ $row=sqlsrv_fetch_array($rs);
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top"><h3>SERVICE CLIENT GISI</h3></nav>
 		<div class="container">
-            <form class="form-horizental" role="form" method="POST" enctype="multipart/form-data">
+            <form class="form-horizental" role="form" method="POST" enctype="multipart/form-data" onsubmit="return ValidationEvent();">
                 <div class="form-group col-sm-6">
         			<h2 align="center"><u>INFO CLIENT</u></h2>
     			</div>
@@ -46,7 +46,7 @@ $row=sqlsrv_fetch_array($rs);
                 <div class="form-group col-sm-6">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="email" value="<?php echo($row['E_MAIL']) ?>" onblur="validateEmail(this);">
+                        <input type="text" class="form-control" id="email" name="email" value="<?php echo($row['E_MAIL']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
@@ -120,7 +120,7 @@ $row=sqlsrv_fetch_array($rs);
                 <div class="form-group">
                 	
                     <div class="col-sm-3 col-sm-offset-3">
-                        <button type="submit" class="btn btn-primary" name="enregistrer">ENREGISTRER</button>
+                        <button type="submit" class="btn btn-primary" name="enregistrer" >ENREGISTRER</button>
                     </div>
                     <div class="form-group col-sm-6">
                     	<div class="col-sm-3 col-sm-offset-3">
@@ -148,16 +148,25 @@ $row=sqlsrv_fetch_array($rs);
                 </div>
             </form> <!-- /form -->
 		</div> <!-- ./container -->
-        <script>function validateEmail(emailField){
-        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-
-        if (reg.test(emailField.value) == false) 
-        {
-            alert('Entrer une adresse mail valide !');
+        <script>
+            function ValidationEvent(){
+            // Storing Field Values In Variables
+            
+            var email = document.getElementById("email").value;
+            
+            // Regular Expression For Email
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            // Conditions
+            if (email !='') {
+            if (email.match(emailReg)) {
+            return true;
+            } else {
+            alert("Entrer une adresse mail valide !");
             return false;
-        }
 
-        return true;}
+            }
+            }
+        }
         </script>
 		<!-- jQuery library -->
 		<script
