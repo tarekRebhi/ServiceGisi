@@ -9,19 +9,10 @@ $row=sqlsrv_fetch_array($rs);
 <html>
 	<head>
 		<meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" href=css/bootstrap.min.css>
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.min.js"></script>
-        <script src="js/respond.min.js"></script>
-        <script type="text/javascript">
-        $(".col-lg-3).addClass("col-md-3").addClass("col-xs-3");
-        $(".col-lg-4).addClass("col-md-4").addClass("col-xs-4");
-        </script>
-        <![endif]-->
-		<script type="text/javascript" src="js/respond.min.js"></script>
+        <script type="text/javascript" src="js/respond.min.js"></script>
         <script type="text/javascript" src="js/html5shiv.min.js"></script>
 	</head>
 	<body>
@@ -55,7 +46,7 @@ $row=sqlsrv_fetch_array($rs);
                 <div class="form-group col-sm-6">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">
-                        <input type="email" class="form-control" name="email" value="<?php echo($row['E_MAIL']) ?>">
+                        <input type="text" class="form-control" name="email" value="<?php echo($row['E_MAIL']) ?>" onblur="validateEmail(this);">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
@@ -155,10 +146,19 @@ $row=sqlsrv_fetch_array($rs);
                 	</div>	
                     </div>
                 </div>
-                               
-              
             </form> <!-- /form -->
 		</div> <!-- ./container -->
+        <script>function validateEmail(emailField){
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        if (reg.test(emailField.value) == false) 
+        {
+            alert('Entrer une adresse mail valide !');
+            return false;
+        }
+
+        return true;}
+        </script>
 		<!-- jQuery library -->
 		<script
               src="https://code.jquery.com/jquery-1.12.4.js"
@@ -166,26 +166,23 @@ $row=sqlsrv_fetch_array($rs);
               crossorigin="anonymous"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="js/bootstrap.min.js"></script>
-		
-		
 	</body>
 	<?php
 	if(isset($_POST["enregistrer"])) {
-	$indice=$row['INDICE'];
-	$civ=$_POST['civ'];
-	$nom=$_POST['nom'];
-	$prenom=$_POST['prenom'];
-	$rs=$_POST['rs'];
-	$codepostal=$_POST['codePostal'];
-	$localite=$_POST['localite']; 
-	$tel=$_POST['tel'];
-	$mail=$_POST['email'];
-	$drappel=$_POST['demandeRappel'];
-	$text=$_POST['comment'];
-	$reqUpdate="UPDATE RECVT_GISI SET CIV='$civ',NOM='$nom',PRENOM='$prenom',RS='$rs',CP='$codepostal',LOCALITE='$localite',E_MAIL='$mail',TEL='$tel',Choix='$drappel',COM='$text' WHERE INDICE=$indice";
-	sqlsrv_query($conn,$reqUpdate);
-	echo "<meta http-equiv='refresh' content='0'>";
-	}
-	?>
+    $indice=$row['INDICE'];
+    $civ=$_POST['civ'];
+    $nom=$_POST['nom'];
+    $prenom=$_POST['prenom'];
+    $rs=$_POST['rs'];
+    $codepostal=$_POST['codePostal'];
+    $localite=$_POST['localite']; 
+    $tel=$_POST['tel'];
+    $mail=$_POST['email'];
+    $drappel=$_POST['demandeRappel'];
+    $text=$_POST['comment'];
+    $reqUpdate="UPDATE RECVT_GISI SET CIV='$civ',NOM='$nom',PRENOM='$prenom',RS='$rs',CP='$codepostal',LOCALITE='$localite',E_MAIL='$mail',TEL='$tel',Choix='$drappel',COM='$text' WHERE INDICE=$indice";
+    sqlsrv_query($conn,$reqUpdate);
+    echo "<meta http-equiv='refresh' content='0'>"; 
+    }    
+    ?>
 </html>
-
