@@ -26,88 +26,88 @@ $row=sqlsrv_fetch_array($rs);
         			<h2 align="center"><u>FACTURE</u></h2>
     			</div>
                 <div class="form-group col-sm-6">
-                    <label for="civilite" class="col-sm-3 control-label">CIV</label>
+                    <h3><label for="civilite" class="col-sm-3 control-label">CIV</label></h3>
                     <div class="col-sm-3">
                         <input type="text"  class="form-control" name="civ" value="<?php echo($row['CIV']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="indice" class="col-sm-3 control-label">INDICE</label>
+                    <h3><label for="indice" class="col-sm-3 control-label">INDICE</label></h3>
                     <div class="col-sm-3">
                         <input type="text" disabled="disabled" class="form-control" name="indice" value="<?php echo($row['INDICE']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="nom" class="col-sm-3 control-label">NOM</label>
+                    <label for="nom" class="col-sm-3 label-primary">NOM</label>
                     <div class="col-sm-9">
                         <input type="text"  class="form-control" name="nom" value="<?php echo($row['NOM']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <label for="email" class="col-sm-3 label-primary">Email</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="email" name="email" value="<?php echo($row['E_MAIL']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="prenom" class="col-sm-3 control-label">PRENOM</label>
+                    <label for="prenom" class="col-sm-3 label-primary">PRENOM</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="prenom" value="<?php echo($row['PRENOM']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="nm_cli" class="col-sm-3 control-label">NM_CLI</label>
+                    <label for="nm_cli" class="col-sm-3 label-primary">NM_CLI</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="nmCli" value="<?php echo($row['NUM_CLI']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="rs" class="col-sm-3 control-label">RS</label>
+                    <label for="rs" class="col-sm-3 label-primary">RS</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="rs" value="<?php echo($row['RS']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="k_titre" class="col-sm-3 control-label">K_TITRE</label>
+                    <label for="k_titre" class="col-sm-3 label-primary">K_TITRE</label>
                     <div class="col-sm-9">
-                        <input  disabled="disabled" type="texte" class="form-control">
+                        <input  readonly type="texte" class="form-control">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="cp" class="col-sm-3 control-label">CP</label>
+                    <label for="cp" class="col-sm-3 label-primary">CP</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="cp" value="<?php echo($row['CP']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="nm_f_edit" class="col-sm-3 control-label">NM_FCT_EDIT</label>
+                    <label for="nm_f_edit" class="col-sm-3 label-primary">NM_FCT_EDIT</label>
                     <div class="col-sm-9">
-                        <input  disabled="disabled" type="texte" class="form-control">
+                        <input  readonly type="texte" class="form-control">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="localite" class="col-sm-3 control-label">LOCALITE</label>
+                    <label for="localite" class="col-sm-3 label-primary">LOCALITE</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="localite" value="<?php echo($row['LOCALITE']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="mt_ttc" class="col-sm-3 control-label">MT_TTC</label>
+                    <label for="mt_ttc" class="col-sm-3 label-primary">MT_TTC</label>
                     <div class="col-sm-9">
-                        <input type="texte" disabled="disabled" class="form-control">
+                        <input type="texte" readonly class="form-control">
                     </div>
                 </div>
             	<div class="form-group col-sm-6">
-                    <label for="tel" class="col-sm-3 control-label">TEL</label>
+                    <label for="tel" class="col-sm-3 label-primary">TEL</label>
                     <div class="col-sm-9">
                         <input type="texte" name="tel" class="form-control" value="<?php echo($row['TEL']) ?>">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="dde_rappel" class="col-sm-3 control-label">DDE_RAPPEL</label>
+                    <label for="dde_rappel" class="col-sm-3 label-primary">DDE_RAPPEL</label>
                     <div class="col-sm-9">
                         <select id="dde_rappel" class="form-control" name="demandeRappel">
-                            <option>- - - - - - - -</option>
+                            <option>- - - - - - - - - - - - - - - - - - - - - - - - - - - - -</option>
                             <option>Demande de facture Courrier</option>
             				<option>Demande de facture par mail</option>
             				<option>Demande justificatif commande</option>
